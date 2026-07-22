@@ -1,3 +1,4 @@
 # Godot 4+ specific ignores
-.godot/
-/android/
+Countdown_TD/.godot/
+Countdown_TD/android/
+builds/
