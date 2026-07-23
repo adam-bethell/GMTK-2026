@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c1nyrkcl8hotm"]
+
+[ext_resource type="Texture2D" uid="uid://dckpi3uv81dyh" path="res://temp_wall.png" id="1_k1sas"]
+[ext_resource type="Script" uid="uid://b0kwc3vn7qkwj" path="res://tower.gd" id="1_vedim"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6aki"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72ghi"]
+size = Vector2(64, 64)
+
+[node name="Tower" type="Node2D" unique_id=1849263306]
+script = ExtResource("1_vedim")
+
+[node name="TempWall" type="Sprite2D" parent="." unique_id=1332619823]
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+texture = ExtResource("1_k1sas")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1373825925]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=442758483]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_k6aki")
+
+[node name="ColourFilter" type="ColorRect" parent="." unique_id=1593328713]
+visible = false
+offset_right = 64.0
+offset_bottom = 64.0
+color = Color(1, 0, 0, 0.39215687)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1232426346]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=653978730]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_72ghi")

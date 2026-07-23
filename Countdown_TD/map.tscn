@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://bvi6bhc3iapqu"]
+
+[ext_resource type="Script" uid="uid://cbn1d3lnieou" path="res://map.gd" id="1_wijl4"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_k6aki"]
+vertices = PackedVector2Array(1222, 74, 1286, 74, 1286, 982, 74, 982, 74, 918, 10, 918, 10, 10, 1222, 10)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 4, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 1296, 0, 1296, 992, 0, 992)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_clex8"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6aki"]
+size = Vector2(1312, 992)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72ghi"]
+size = Vector2(1424, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_losew"]
+size = Vector2(1424, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tno63"]
+size = Vector2(64, 1120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nj4ij"]
+size = Vector2(64, 1120)
+
+[node name="Map" type="Node2D" unique_id=1230072396]
+script = ExtResource("1_wijl4")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1457214581]
+offset_right = 1296.0
+offset_bottom = 992.0
+mouse_filter = 2
+color = Color(0.4627451, 0.8235294, 0.03529412, 1)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1215849269]
+navigation_polygon = SubResource("NavigationPolygon_k6aki")
+
+[node name="spawn" type="Node2D" parent="NavigationRegion2D" unique_id=887597752]
+
+[node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/spawn" unique_id=596682347]
+offset_left = 1232.0
+offset_right = 1296.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(4.8687005, 1.5560353, 4.8687005, 1)
+
+[node name="Area2D" type="Area2D" parent="NavigationRegion2D/spawn" unique_id=1350438504]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/spawn/Area2D" unique_id=894330404]
+position = Vector2(1264, 32)
+shape = SubResource("RectangleShape2D_clex8")
+
+[node name="goal" type="Node2D" parent="NavigationRegion2D" unique_id=1457743602]
+position = Vector2(-1232, 928)
+
+[node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/goal" unique_id=954451580]
+offset_left = 1232.0
+offset_right = 1296.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(3.4782214, 3.3853037, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="NavigationRegion2D/goal" unique_id=609798312]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/goal/Area2D" unique_id=1005093822]
+position = Vector2(1264, 32)
+shape = SubResource("RectangleShape2D_clex8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2030972061]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=362222802]
+position = Vector2(656, 496)
+shape = SubResource("RectangleShape2D_k6aki")
+
+[node name="Edges" type="Node2D" parent="." unique_id=1238581283]
+
+[node name="North" type="Area2D" parent="Edges" unique_id=26962047]
+collision_layer = 3
+collision_mask = 3
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Edges/North" unique_id=2054292703]
+position = Vector2(648, -32)
+shape = SubResource("RectangleShape2D_72ghi")
+
+[node name="South" type="Area2D" parent="Edges" unique_id=187941608]
+collision_layer = 3
+collision_mask = 3
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Edges/South" unique_id=1083141243]
+position = Vector2(648, 1024)
+shape = SubResource("RectangleShape2D_losew")
+
+[node name="East" type="Area2D" parent="Edges" unique_id=73401834]
+collision_layer = 3
+collision_mask = 3
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Edges/East" unique_id=1704931494]
+position = Vector2(1328, 496)
+shape = SubResource("RectangleShape2D_tno63")
+
+[node name="West" type="Area2D" parent="Edges" unique_id=1531092847]
+collision_layer = 3
+collision_mask = 3
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Edges/West" unique_id=492276609]
+position = Vector2(-32, 496)
+shape = SubResource("RectangleShape2D_nj4ij")

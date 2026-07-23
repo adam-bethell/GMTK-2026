@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cbqjsewal8uw"]
+
+[ext_resource type="Script" uid="uid://d3yu04pid0l2e" path="res://game_controller.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bvi6bhc3iapqu" path="res://map.tscn" id="2_0xm2m"]
+
+[node name="root" type="Node2D" unique_id=1288628440]
+script = ExtResource("1_0xm2m")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=635202606]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.32156864, 0.29411766, 0.14117648, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=921667883]
+anchor_mode = 0
+
+[node name="Map" parent="." unique_id=1230072396 instance=ExtResource("2_0xm2m")]
+position = Vector2(40, 56)

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cr28b5s8wvh6k"]
+
+[ext_resource type="Texture2D" uid="uid://c34ahvtjhln8b" path="res://icon.svg" id="1_dy6sc"]
+[ext_resource type="Script" uid="uid://02q57ii4lohn" path="res://mob.gd" id="1_nokgg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nokgg"]
+radius = 16.0
+
+[node name="Mob" type="CharacterBody2D" unique_id=1017959673]
+position = Vector2(-16, -16)
+script = ExtResource("1_nokgg")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1210553278]
+position = Vector2(16, 16)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_dy6sc")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1690640597]
+debug_enabled = true
+debug_path_custom_color = Color(0, 1, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1230070016]
+position = Vector2(16, 16)
+shape = SubResource("CircleShape2D_nokgg")
