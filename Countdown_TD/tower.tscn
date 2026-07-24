@@ -1,7 +1,141 @@
 [gd_scene format=3 uid="uid://c1nyrkcl8hotm"]
 
-[ext_resource type="Texture2D" uid="uid://dckpi3uv81dyh" path="res://temp_wall.png" id="1_k1sas"]
 [ext_resource type="Script" uid="uid://b0kwc3vn7qkwj" path="res://tower.gd" id="1_vedim"]
+[ext_resource type="Texture2D" uid="uid://dqfn5koxcu7hv" path="res://Stake_Turret_sprite.png" id="2_vedim"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stebd"]
+atlas = ExtResource("2_vedim")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbe1c"]
+atlas = ExtResource("2_vedim")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxmma"]
+atlas = ExtResource("2_vedim")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lny5m"]
+atlas = ExtResource("2_vedim")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ibu2"]
+atlas = ExtResource("2_vedim")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdbe0"]
+atlas = ExtResource("2_vedim")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwla6"]
+atlas = ExtResource("2_vedim")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh44g"]
+atlas = ExtResource("2_vedim")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyvao"]
+atlas = ExtResource("2_vedim")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d03u5"]
+atlas = ExtResource("2_vedim")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvyee"]
+atlas = ExtResource("2_vedim")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6rmy"]
+atlas = ExtResource("2_vedim")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv07r"]
+atlas = ExtResource("2_vedim")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hilxi"]
+atlas = ExtResource("2_vedim")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80afm"]
+atlas = ExtResource("2_vedim")
+region = Rect2(896, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ebih"]
+atlas = ExtResource("2_vedim")
+region = Rect2(960, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgpyl"]
+atlas = ExtResource("2_vedim")
+region = Rect2(1024, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g44d5"]
+atlas = ExtResource("2_vedim")
+region = Rect2(1088, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6aki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stebd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbe1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxmma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lny5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ibu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdbe0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwla6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yh44g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyvao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d03u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvyee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6rmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv07r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hilxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80afm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ebih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgpyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g44d5")
+}],
+"loop": 0,
+"name": &"Fire",
+"speed": 60.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6aki"]
 size = Vector2(64, 64)
@@ -9,13 +143,24 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72ghi"]
 size = Vector2(64, 64)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k6aki"]
+radius = 224.0
+
 [node name="Tower" type="Node2D" unique_id=1849263306]
 script = ExtResource("1_vedim")
 
-[node name="TempWall" type="Sprite2D" parent="." unique_id=1332619823]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1754471128]
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.5647059, 0.5647059, 0.5647059, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1004303130]
 position = Vector2(32, 32)
-scale = Vector2(2, 2)
-texture = ExtResource("1_k1sas")
+sprite_frames = SubResource("SpriteFrames_k6aki")
+animation = &"Fire"
+frame = 17
+frame_progress = 1.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1373825925]
 
@@ -36,3 +181,11 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=653978730]
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_72ghi")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=673923566]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1495837938]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_k6aki")

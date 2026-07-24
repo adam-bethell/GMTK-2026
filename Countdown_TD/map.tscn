@@ -1,11 +1,70 @@
 [gd_scene format=3 uid="uid://bvi6bhc3iapqu"]
 
 [ext_resource type="Script" uid="uid://cbn1d3lnieou" path="res://map.gd" id="1_wijl4"]
+[ext_resource type="Texture2D" uid="uid://csrp3euoass5w" path="res://Spawn_Circle.png" id="2_wijl4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_k6aki"]
 vertices = PackedVector2Array(1222, 74, 1286, 74, 1286, 982, 74, 982, 74, 918, 10, 918, 10, 10, 1222, 10)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 4, 5, 6, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 1296, 0, 1296, 992, 0, 992)])
+agent_radius = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0an3"]
+atlas = ExtResource("2_wijl4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5pve"]
+atlas = ExtResource("2_wijl4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urblq"]
+atlas = ExtResource("2_wijl4")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw27f"]
+atlas = ExtResource("2_wijl4")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71pa8"]
+atlas = ExtResource("2_wijl4")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05x41"]
+atlas = ExtResource("2_wijl4")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqbix"]
+atlas = ExtResource("2_wijl4")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6aki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0an3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5pve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urblq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw27f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71pa8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05x41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqbix")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clex8"]
 size = Vector2(64, 64)
@@ -39,12 +98,11 @@ navigation_polygon = SubResource("NavigationPolygon_k6aki")
 
 [node name="spawn" type="Node2D" parent="NavigationRegion2D" unique_id=887597752]
 
-[node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/spawn" unique_id=596682347]
-offset_left = 1232.0
-offset_right = 1296.0
-offset_bottom = 64.0
-mouse_filter = 2
-color = Color(4.8687005, 1.5560353, 4.8687005, 1)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NavigationRegion2D/spawn" unique_id=1287300470]
+position = Vector2(1264, 32)
+sprite_frames = SubResource("SpriteFrames_k6aki")
+autoplay = "default"
+frame_progress = 0.8423253
 
 [node name="Area2D" type="Area2D" parent="NavigationRegion2D/spawn" unique_id=1350438504]
 collision_layer = 3

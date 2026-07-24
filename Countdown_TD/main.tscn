@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://d3yu04pid0l2e" path="res://game_controller.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bvi6bhc3iapqu" path="res://map.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://cxcf61qn5y2gn" path="res://health.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://d0lalrjm15ox3" path="res://clock.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://cycspx1wmcil" path="res://gold.gd" id="5_lquwl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k6aki"]
+font_size = 40
 
 [node name="root" type="Node2D" unique_id=1288628440]
 script = ExtResource("1_0xm2m")
@@ -17,3 +23,36 @@ anchor_mode = 0
 
 [node name="Map" parent="." unique_id=1230072396 instance=ExtResource("2_0xm2m")]
 position = Vector2(40, 56)
+
+[node name="health" type="Label" parent="." unique_id=819404637]
+offset_left = 1528.0
+offset_top = 8.0
+offset_right = 1652.0
+offset_bottom = 63.0
+text = "health"
+label_settings = SubResource("LabelSettings_k6aki")
+script = ExtResource("3_h2yge")
+
+[node name="clock" type="Label" parent="." unique_id=2137193887]
+offset_left = 1744.0
+offset_top = 8.0
+offset_right = 1868.0
+offset_bottom = 63.0
+text = "clock"
+label_settings = SubResource("LabelSettings_k6aki")
+script = ExtResource("4_1bvp3")
+
+[node name="gold" type="Label" parent="." unique_id=1807547627]
+offset_left = 1352.0
+offset_top = 8.0
+offset_right = 1476.0
+offset_bottom = 63.0
+text = "gold"
+label_settings = SubResource("LabelSettings_k6aki")
+script = ExtResource("5_lquwl")
+
+[node name="TowerOptions" type="Control" parent="." unique_id=1771659708]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

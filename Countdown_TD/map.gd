@@ -10,12 +10,17 @@ var isMousePresent := false
 
 func _ready() -> void:
 	towerGhost = towerPF.instantiate()
+	towerGhost.use_as_ghost()
 	add_child(towerGhost)
 	
 	var clickableArea := $Area2D
 	clickableArea.mouse_entered.connect(_on_mouse_enter)
 	clickableArea.mouse_exited.connect(_on_mouse_exit)
 	clickableArea.input_event.connect(_on_input_event)
+	
+	Globals.on_day_night_change.connect(_on_day_night_change)
+	
+	navRegion.bake_navigation_polygon()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -30,16 +35,19 @@ func _physics_process(delta: float) -> void:
 	
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_released("mouse_click"):
-		if towerGhost.getFilterState():
+		if towerGhost.getFilterState() or not is_day:
 			return
-		var go:Node2D = towerPF.instantiate()
-		navRegion.add_child(go)
-		go.global_position = get_viewport().get_mouse_position().floor() - Vector2(32, 32)
-		navRegion.bake_navigation_polygon()
+		
+		if Globals.spend_gold(1):
+			var go:Node2D = towerPF.instantiate()
+			navRegion.add_child(go)
+			go.global_position = get_viewport().get_mouse_position().floor() - Vector2(32, 32)
+			navRegion.bake_navigation_polygon()
 
 func _on_mouse_enter() -> void:
 	isMousePresent = true
-	towerGhost.visible = true
+	if is_day:
+		towerGhost.visible = true
 	
 func _on_mouse_exit() -> void:
 	isMousePresent = false
@@ -50,3 +58,8 @@ func spawn_mob() -> void:
 	add_child(mob)
 	mob.global_position = mobSpawnPos
 	mob.set_target(mobTargetPos)
+
+var is_day = true
+func _on_day_night_change(value: bool) -> void:
+	is_day = value
+	towerGhost.visible = is_day

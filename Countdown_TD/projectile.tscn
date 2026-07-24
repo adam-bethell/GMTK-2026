@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cj5nbq0l8fo7c"]
+
+[ext_resource type="Texture2D" uid="uid://cvg2wclt81pvu" path="res://Bolt.png" id="1_a85iw"]
+[ext_resource type="Script" uid="uid://b1je5xbm6kg4" path="res://projectile.gd" id="2_qxf0c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6aki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a85iw")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="AnimatedSprite2D" unique_id=2097062514]
+sprite_frames = SubResource("SpriteFrames_k6aki")
+script = ExtResource("2_qxf0c")
