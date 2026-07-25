@@ -1,8 +1,37 @@
 [gd_scene format=3 uid="uid://cr28b5s8wvh6k"]
 
-[ext_resource type="Texture2D" uid="uid://c34ahvtjhln8b" path="res://icon.svg" id="1_dy6sc"]
 [ext_resource type="Script" uid="uid://02q57ii4lohn" path="res://mob.gd" id="1_nokgg"]
+[ext_resource type="Texture2D" uid="uid://bjxdk5887iw2u" path="res://Enemy_1.png" id="2_ubaqv"]
 [ext_resource type="Script" uid="uid://b8hm5rr44l5bv" path="res://mob_area_2d.gd" id="3_ubaqv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p11y5"]
+atlas = ExtResource("2_ubaqv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5nov"]
+atlas = ExtResource("2_ubaqv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3mxk"]
+atlas = ExtResource("2_ubaqv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6aki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p11y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5nov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3mxk")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nokgg"]
 radius = 16.0
@@ -14,12 +43,13 @@ radius = 16.0
 collision_layer = 6
 script = ExtResource("1_nokgg")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1210553278]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_dy6sc")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063286379]
+scale = Vector2(1.76, 1.76)
+sprite_frames = SubResource("SpriteFrames_k6aki")
+autoplay = "default"
+frame_progress = 0.24841388
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1690640597]
-debug_enabled = true
 debug_path_custom_color = Color(0, 1, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1230070016]

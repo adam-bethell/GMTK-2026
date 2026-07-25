@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cbn1d3lnieou" path="res://map.gd" id="1_wijl4"]
 [ext_resource type="Texture2D" uid="uid://csrp3euoass5w" path="res://Spawn_Circle.png" id="2_wijl4"]
+[ext_resource type="Script" uid="uid://c7o15b48wpp2q" path="res://detonation_area.gd" id="3_e0an3"]
+[ext_resource type="Texture2D" uid="uid://csnh35m7uw334" path="res://Base.png" id="3_urblq"]
+[ext_resource type="Texture2D" uid="uid://cbw2hxenhbofp" path="res://Explosion1.png" id="4_p5pve"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_k6aki"]
 vertices = PackedVector2Array(1222, 74, 1286, 74, 1286, 982, 74, 982, 74, 918, 10, 918, 10, 10, 1222, 10)
@@ -84,25 +87,164 @@ size = Vector2(64, 1120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nj4ij"]
 size = Vector2(64, 1120)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k6aki"]
+radius = 96.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oysan"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb2pt"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t07s"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qsgm"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooc2g"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wwcf"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbpbn"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6rn7"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4on3e"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(1536, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bssq0"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(1728, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk4ss"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(1920, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5om4"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(2112, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jky6x"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(2304, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sf5t"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(2496, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mr0t"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(2688, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sq2s"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(2880, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v3wx"]
+atlas = ExtResource("4_p5pve")
+region = Rect2(3072, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_72ghi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oysan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb2pt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0t07s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qsgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooc2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wwcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbpbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6rn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4on3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bssq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk4ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5om4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jky6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4sf5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mr0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sq2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v3wx")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"Explode",
+"speed": 20.0
+}]
+
 [node name="Map" type="Node2D" unique_id=1230072396]
 script = ExtResource("1_wijl4")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1457214581]
-offset_right = 1296.0
-offset_bottom = 992.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 1288.0
+offset_bottom = 984.0
 mouse_filter = 2
-color = Color(0.4627451, 0.8235294, 0.03529412, 1)
+color = Color(0.47189373, 0.3536696, 0.26940364, 1)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1215849269]
 navigation_polygon = SubResource("NavigationPolygon_k6aki")
 
 [node name="spawn" type="Node2D" parent="NavigationRegion2D" unique_id=887597752]
+position = Vector2(-8, 8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NavigationRegion2D/spawn" unique_id=1287300470]
 position = Vector2(1264, 32)
 sprite_frames = SubResource("SpriteFrames_k6aki")
 autoplay = "default"
-frame_progress = 0.8423253
+frame_progress = 0.9574876
 
 [node name="Area2D" type="Area2D" parent="NavigationRegion2D/spawn" unique_id=1350438504]
 collision_layer = 3
@@ -112,14 +254,11 @@ position = Vector2(1264, 32)
 shape = SubResource("RectangleShape2D_clex8")
 
 [node name="goal" type="Node2D" parent="NavigationRegion2D" unique_id=1457743602]
-position = Vector2(-1232, 928)
+position = Vector2(-1224, 920)
 
-[node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/goal" unique_id=954451580]
-offset_left = 1232.0
-offset_right = 1296.0
-offset_bottom = 64.0
-mouse_filter = 2
-color = Color(3.4782214, 3.3853037, 0, 1)
+[node name="Sprite2D" type="Sprite2D" parent="NavigationRegion2D/goal" unique_id=1524299646]
+position = Vector2(1264, 32)
+texture = ExtResource("3_urblq")
 
 [node name="Area2D" type="Area2D" parent="NavigationRegion2D/goal" unique_id=609798312]
 collision_layer = 3
@@ -171,3 +310,17 @@ input_pickable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Edges/West" unique_id=492276609]
 position = Vector2(-32, 496)
 shape = SubResource("RectangleShape2D_nj4ij")
+
+[node name="DetonationArea" type="Area2D" parent="." unique_id=1818514904]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("3_e0an3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetonationArea" unique_id=516004927]
+shape = SubResource("CircleShape2D_k6aki")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DetonationArea" unique_id=1721436962]
+sprite_frames = SubResource("SpriteFrames_72ghi")
+animation = &"Explode"
+frame = 18
+frame_progress = 1.0

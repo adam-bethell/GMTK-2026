@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b1o2yhrp66sb1"]
+
+[ext_resource type="Texture2D" uid="uid://ono4djbqxhm3" path="res://Onion.png" id="1_hi5l2"]
+[ext_resource type="Script" uid="uid://b1je5xbm6kg4" path="res://projectile.gd" id="2_mw2g6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mw2g6"]
+atlas = ExtResource("1_hi5l2")
+region = Rect2(0, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m16sc"]
+atlas = ExtResource("1_hi5l2")
+region = Rect2(12, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uccnu"]
+atlas = ExtResource("1_hi5l2")
+region = Rect2(24, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coi37"]
+atlas = ExtResource("1_hi5l2")
+region = Rect2(36, 0, 12, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6aki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mw2g6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m16sc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uccnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coi37")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Node2D" type="AnimatedSprite2D" unique_id=912203110]
+sprite_frames = SubResource("SpriteFrames_k6aki")
+autoplay = "default"
+frame_progress = 0.9669897
+script = ExtResource("2_mw2g6")

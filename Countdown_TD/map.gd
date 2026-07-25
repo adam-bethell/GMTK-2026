@@ -11,6 +11,7 @@ var isMousePresent := false
 func _ready() -> void:
 	towerGhost = towerPF.instantiate()
 	towerGhost.use_as_ghost()
+	towerGhost.set_type(1)
 	add_child(towerGhost)
 	
 	var clickableArea := $Area2D
@@ -22,26 +23,44 @@ func _ready() -> void:
 	
 	navRegion.bake_navigation_polygon()
 
+var tower_type = 1
+func new_tower_selected(type:int) -> void:
+	Globals.select_tower()
+	tower_type = type
+	towerGhost.set_type(tower_type)
+	if type == 1:
+		tower_cost = 2
+	elif type == 2:
+		tower_cost = 5
+	else:
+		tower_cost = 10
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if not isMousePresent:
 		return
 	var temp = towerGhost.global_position
 	var new = get_viewport().get_mouse_position().floor() - Vector2(32, 32)
-	if temp != new:
-		towerGhost.global_position = new
-		towerGhost.set_colour_filter(towerGhost.is_colliding())
+	new.x = new.x - (int(new.x) % 16)
+	new.y = new.y - (int(new.y) % 16)
+	towerGhost.global_position = new
+	towerGhost.set_colour_filter(towerGhost.is_colliding())
 	
-	
+var tower_cost = 1
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_released("mouse_click"):
 		if towerGhost.getFilterState() or not is_day:
 			return
 		
-		if Globals.spend_gold(1):
+		if Globals.spend_gold(tower_cost):
+			Globals.tower_placed()
 			var go:Node2D = towerPF.instantiate()
+			go.set_type(tower_type)
 			navRegion.add_child(go)
-			go.global_position = get_viewport().get_mouse_position().floor() - Vector2(32, 32)
+			var new = get_viewport().get_mouse_position().floor() - Vector2(32, 32)
+			new.x = new.x - (int(new.x) % 16)
+			new.y = new.y - (int(new.y) % 16)
+			go.global_position = new
 			navRegion.bake_navigation_polygon()
 
 func _on_mouse_enter() -> void:
@@ -58,7 +77,13 @@ func spawn_mob() -> void:
 	add_child(mob)
 	mob.global_position = mobSpawnPos
 	mob.set_target(mobTargetPos)
+	mob.on_detonate.connect(_on_mob_detonate)
 
+func _on_mob_detonate(detonation_position) -> void:
+	$DetonationArea.detonate(detonation_position)
+	Globals.detonation()
+	navRegion.bake_navigation_polygon()
+	
 var is_day = true
 func _on_day_night_change(value: bool) -> void:
 	is_day = value

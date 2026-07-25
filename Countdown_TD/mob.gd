@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
+signal on_detonate
 @onready var navAgent := $NavigationAgent2D
 var target_is_set = false
+var true_target = null
 var speed = 100
 var health = 100
 
@@ -13,9 +15,11 @@ func _ready() -> void:
 func _on_damaged(val: int) -> void:
 	health = health - val
 	if health <= 0:
-		die()
+		Globals.mob_died()
+		queue_free()
 	
 func set_target(value: Vector2) ->void:
+	true_target = value
 	navAgent.target_position = value
 	target_is_set = true
 
@@ -24,13 +28,18 @@ func _process(delta: float) -> void:
 	if navAgent.is_navigation_finished():
 		velocity = Vector2.ZERO
 		if target_is_set:
-			# if target is reached but too far from actual then explode and destroy towers
-			Globals.mob_reached_goal()
+			var temp = true_target.distance_to(global_position)
+			if temp > 50:
+				on_detonate.emit(global_position)
+			else:
+				Globals.mob_reached_goal()
 			queue_free()
 		return
 
 	# 2. Get the next waypoint position along the calculated path
 	var next_path_position: Vector2 = navAgent.get_next_path_position()
+	look_at(next_path_position)
+	rotate(-90)
 	
 	# 3. Calculate the direction vector toward that waypoint
 	var new_velocity: Vector2 = global_position.direction_to(next_path_position) * speed
@@ -41,8 +50,4 @@ func _process(delta: float) -> void:
 
 func _on_day_night_change(is_day: bool) -> void:
 	if is_day:
-		die()
-
-func die() -> void:
-	Globals.mob_died()
-	queue_free()
+		queue_free()
