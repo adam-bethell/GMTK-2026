@@ -443,6 +443,12 @@ animations = [{
 [node name="Tower" type="Node2D" unique_id=1849263306]
 script = ExtResource("1_vedim")
 
+[node name="aoe" type="Polygon2D" parent="." unique_id=1364995425]
+visible = false
+position = Vector2(-32, 0)
+color = Color(0.69411767, 0.94509804, 0.98039216, 0.24705882)
+polygon = PackedVector2Array(-91, -10, -75, -50, -49, -82, -17, -107, 23, -123, 64, -128, 105, -123, 144, -107, 178, -81, 203, -49, 219, -10, 224, 32, 219, 73, 203, 113, 178, 145, 146, 171, 105, 187, 64, 192, 23, 187, -15, 172, -49, 146, -75, 112, -91, 74, -96, 32)
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1158953276]
 position = Vector2(32, 32)
 texture = ExtResource("2_tdbe0")

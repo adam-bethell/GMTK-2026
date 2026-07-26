@@ -26,6 +26,9 @@ animations = [{
 "texture": SubResource("AtlasTexture_s5nov")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_p11y5")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_b3mxk")
 }],
 "loop": 1,
@@ -47,7 +50,7 @@ script = ExtResource("1_nokgg")
 scale = Vector2(1.76, 1.76)
 sprite_frames = SubResource("SpriteFrames_k6aki")
 autoplay = "default"
-frame_progress = 0.24841388
+frame_progress = 0.27571103
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1690640597]
 debug_path_custom_color = Color(0, 1, 1, 1)

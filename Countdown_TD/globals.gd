@@ -1,5 +1,11 @@
 extends Node2D
 
+func globals_init() -> void:
+	gold = 10
+	on_gold_change.emit(gold)
+	health = 10
+	on_health_change.emit(health)
+
 signal on_gold_change
 var gold:float = 10
 func mob_died() ->void:
@@ -15,12 +21,14 @@ func spend_gold(val: int) -> bool:
 		return true
 	return false
 
+
 signal on_health_change
 var health = 10
 func mob_reached_goal() -> void:
 	health = health - 1
 	on_health_change.emit(health)
 	$Portal.play()
+		
 	
 signal on_day_night_change
 func day_night_changed(val: bool) -> void:
@@ -49,3 +57,6 @@ func fire2SFX() -> void:
 	
 func fire3SFX() -> void:
 	$WaterSFX.play()
+	
+func gameOverSFX() -> void:
+	$GameOverSFX.play()

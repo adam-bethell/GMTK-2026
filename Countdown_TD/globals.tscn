@@ -31,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://d2llu5hclvvnj" path="res://sfx/splash.wav" id="29_b4uhy"]
 [ext_resource type="AudioStream" uid="uid://jdcyeaj1pw1y" path="res://sfx/portal1.wav" id="30_47bfx"]
 [ext_resource type="AudioStream" uid="uid://dbxb0ptgmxrmi" path="res://sfx/portal2.wav" id="31_1xki6"]
+[ext_resource type="AudioStream" uid="uid://cibt0g25p7wjk" path="res://va/game_over1.wav" id="32_1xki6"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_68oy0"]
 streams_count = 9
@@ -105,7 +106,7 @@ autoplay = true
 
 [node name="FogHorn" type="AudioStreamPlayer" parent="." unique_id=876372004]
 stream = ExtResource("3_pw6g4")
-volume_db = -10.742
+volume_db = -5.0
 
 [node name="Deaths" type="AudioStreamPlayer" parent="." unique_id=1444012547]
 stream = SubResource("AudioStreamRandomizer_68oy0")
@@ -129,7 +130,7 @@ volume_db = -15.0
 
 [node name="SelectTower" type="AudioStreamPlayer" parent="." unique_id=1810089799]
 stream = SubResource("AudioStreamRandomizer_tno63")
-volume_db = -15.0
+volume_db = -9.447
 
 [node name="StakeSFX" type="AudioStreamPlayer" parent="." unique_id=1417303320]
 stream = SubResource("AudioStreamRandomizer_pculj")
@@ -146,3 +147,6 @@ volume_db = -21.483
 [node name="Portal" type="AudioStreamPlayer" parent="." unique_id=1493478579]
 stream = SubResource("AudioStreamRandomizer_clex8")
 volume_db = -13.184
+
+[node name="GameOverSFX" type="AudioStreamPlayer" parent="." unique_id=122981516]
+stream = ExtResource("32_1xki6")

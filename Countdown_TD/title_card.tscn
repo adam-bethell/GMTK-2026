@@ -1,5 +1,30 @@
 [gd_scene format=3 uid="uid://h5das4gn038e"]
 
+[ext_resource type="Texture2D" uid="uid://bgxggdfhag17n" path="res://Title_page.png" id="1_1svst"]
+[ext_resource type="Script" uid="uid://cm4nd77tsvd8k" path="res://texture_button.gd" id="2_pe4mo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe4mo"]
+atlas = ExtResource("1_1svst")
+region = Rect2(0, 0, 1980, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6hyl"]
+atlas = ExtResource("1_1svst")
+region = Rect2(1980, 0, 1980, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6aki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe4mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6hyl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="TitleCard" type="Control" unique_id=1864418223]
 layout_mode = 3
 anchors_preset = 15
@@ -10,3 +35,20 @@ grow_vertical = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=524641390]
 anchor_mode = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1963199694]
+scale = Vector2(0.9696969, 1)
+sprite_frames = SubResource("SpriteFrames_k6aki")
+autoplay = "default"
+frame_progress = 0.583588
+centered = false
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1627753012]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 656.0
+offset_right = 1104.0
+offset_bottom = 824.0
+script = ExtResource("2_pe4mo")
+
+[connection signal="button_up" from="TextureButton" to="TextureButton" method="_on_button_up"]

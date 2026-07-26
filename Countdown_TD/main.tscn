@@ -3,15 +3,23 @@
 [ext_resource type="Script" uid="uid://d3yu04pid0l2e" path="res://game_controller.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bvi6bhc3iapqu" path="res://map.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://cxcf61qn5y2gn" path="res://health.gd" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://bue8wrcdffklh" path="res://Score.png" id="3_w48qg"]
 [ext_resource type="Script" uid="uid://d0lalrjm15ox3" path="res://clock.gd" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://b251858m754eu" path="res://heart.png" id="4_efxa6"]
 [ext_resource type="Script" uid="uid://cycspx1wmcil" path="res://gold.gd" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://ddnmwcmjcwkgm" path="res://Coin.png" id="6_4c57u"]
 [ext_resource type="Script" uid="uid://bc85j1lq3iq3k" path="res://tower_options.gd" id="6_5vw27"]
+[ext_resource type="Texture2D" uid="uid://cioxqydf6l8rf" path="res://Sun.png" id="6_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://dqfn5koxcu7hv" path="res://Stake_Turret_sprite.png" id="7_kek77"]
+[ext_resource type="Texture2D" uid="uid://bhaujot5ptith" path="res://Moon.png" id="7_w48qg"]
 [ext_resource type="Texture2D" uid="uid://dymluq8w42vwn" path="res://Trebuchet.png" id="8_4c57u"]
 [ext_resource type="Texture2D" uid="uid://db17ef2db7puq" path="res://holy_water_thrower.png" id="9_kek77"]
+[ext_resource type="Texture2D" uid="uid://l6d2l8jc1jeq" path="res://Game_over.png" id="15_vivmo"]
+[ext_resource type="Script" uid="uid://cf815n3ikyc8b" path="res://game_over_screen.gd" id="16_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://c2ktx75ss6g5l" path="res://Retry.png" id="17_yaehf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_72ghi"]
-font_size = 42
+font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_k6aki"]
 font_size = 40
@@ -330,6 +338,35 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uypp3"]
+atlas = ExtResource("15_vivmo")
+region = Rect2(0, 0, 1980, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blkrb"]
+atlas = ExtResource("15_vivmo")
+region = Rect2(1980, 0, 1980, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abqjc"]
+atlas = ExtResource("15_vivmo")
+region = Rect2(3960, 0, 1980, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nj4ij"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uypp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blkrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abqjc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
+
 [node name="root" type="Node2D" unique_id=1288628440]
 script = ExtResource("1_0xm2m")
 
@@ -337,7 +374,7 @@ script = ExtResource("1_0xm2m")
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
-color = Color(0.32156864, 0.29411766, 0.14117648, 1)
+color = Color(0, 0.19215687, 0.30588236, 0.3529412)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=921667883]
 anchor_mode = 0
@@ -346,47 +383,68 @@ anchor_mode = 0
 position = Vector2(40, 56)
 
 [node name="total_time" type="Label" parent="." unique_id=1168543966]
-offset_left = 1368.0
-offset_top = 8.0
-offset_right = 1477.0
-offset_bottom = 66.0
-text = "score"
+offset_left = 1448.0
+offset_top = 48.0
+offset_right = 1756.0
+offset_bottom = 106.0
+text = "Survived for 123.4 seconds"
 label_settings = SubResource("LabelSettings_72ghi")
 
+[node name="Sprite2D" type="Sprite2D" parent="total_time" unique_id=1003373527]
+position = Vector2(-48, 16)
+texture = ExtResource("3_w48qg")
+
 [node name="health" type="Label" parent="." unique_id=819404637]
-offset_left = 1528.0
-offset_top = 80.0
-offset_right = 1652.0
-offset_bottom = 135.0
-text = "health"
+offset_left = 1640.0
+offset_top = 136.0
+offset_right = 1764.0
+offset_bottom = 191.0
+text = "10"
 label_settings = SubResource("LabelSettings_k6aki")
 script = ExtResource("3_h2yge")
 
+[node name="Sprite2D" type="Sprite2D" parent="health" unique_id=2145317165]
+position = Vector2(-40, 24)
+texture = ExtResource("4_efxa6")
+
 [node name="clock" type="Label" parent="." unique_id=2137193887]
-offset_left = 1744.0
-offset_top = 80.0
-offset_right = 1868.0
-offset_bottom = 135.0
-text = "clock"
+offset_left = 1792.0
+offset_top = 136.0
+offset_right = 1916.0
+offset_bottom = 191.0
+text = "10.0"
 label_settings = SubResource("LabelSettings_k6aki")
 script = ExtResource("4_1bvp3")
 
+[node name="day" type="Sprite2D" parent="clock" unique_id=1602966307]
+position = Vector2(-40, 24)
+texture = ExtResource("6_ycdy4")
+
+[node name="night" type="Sprite2D" parent="clock" unique_id=735247352]
+visible = false
+position = Vector2(-40, 24)
+texture = ExtResource("7_w48qg")
+
 [node name="gold" type="Label" parent="." unique_id=1807547627]
-offset_left = 1328.0
-offset_top = 80.0
-offset_right = 1452.0
-offset_bottom = 135.0
-text = "gold"
+offset_left = 1440.0
+offset_top = 136.0
+offset_right = 1564.0
+offset_bottom = 191.0
+text = "10.0"
 label_settings = SubResource("LabelSettings_k6aki")
 script = ExtResource("5_lquwl")
+
+[node name="Sprite2D" type="Sprite2D" parent="gold" unique_id=1723765674]
+position = Vector2(-40, 24)
+texture = ExtResource("6_4c57u")
 
 [node name="TowerOptions" type="Control" parent="." unique_id=1771659708]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1560.0
-offset_top = 384.0
-offset_right = 1600.0
-offset_bottom = 424.0
+offset_left = 1520.0
+offset_top = 408.0
+offset_right = 1560.0
+offset_bottom = 448.0
 script = ExtResource("6_5vw27")
 
 [node name="Stakes" type="Control" parent="TowerOptions" unique_id=1646077169]
@@ -412,7 +470,7 @@ offset_left = 48.0
 offset_top = -24.0
 offset_right = 230.46002
 offset_bottom = 140.83
-text = "Cost: 2 Gold
+text = "Cost: 1 Gold
 Single closest target"
 label_settings = SubResource("LabelSettings_nj4ij")
 
@@ -437,9 +495,9 @@ autoplay = "default"
 [node name="RichTextLabel" type="Label" parent="TowerOptions/Trebuchet" unique_id=1231724436]
 layout_mode = 0
 offset_left = 48.0
-offset_top = -24.0
+offset_top = -40.0
 offset_right = 230.46002
-offset_bottom = 140.83
+offset_bottom = 124.83
 text = "Cost: 5 Gold
 Splash damage on
 furthest target"
@@ -466,10 +524,29 @@ autoplay = "default"
 [node name="RichTextLabel" type="Label" parent="TowerOptions/HolyWater" unique_id=647562934]
 layout_mode = 0
 offset_left = 48.0
-offset_top = -24.0
+offset_top = -40.0
 offset_right = 281.0
-offset_bottom = 140.83
+offset_bottom = 124.83
 text = "Cost: 10 Gold
 Cone AOE aimed 
 at furtherest target"
 label_settings = SubResource("LabelSettings_nj4ij")
+
+[node name="GameOverScreen" type="AnimatedSprite2D" parent="." unique_id=727294349]
+visible = false
+position = Vector2(936, 472)
+scale = Vector2(1, 0.99)
+sprite_frames = SubResource("SpriteFrames_nj4ij")
+autoplay = "default"
+frame_progress = 0.12694031
+script = ExtResource("16_2cqfq")
+
+[node name="TextureButton" type="TextureButton" parent="GameOverScreen" unique_id=1603882905]
+offset_left = -248.0
+offset_top = 436.3636
+offset_right = 425.0
+offset_bottom = 695.36365
+scale = Vector2(0.545, 0.545)
+texture_normal = ExtResource("17_yaehf")
+
+[connection signal="button_up" from="GameOverScreen/TextureButton" to="GameOverScreen" method="_on_texture_button_button_up"]

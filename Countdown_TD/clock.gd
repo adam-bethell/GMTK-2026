@@ -6,8 +6,12 @@ extends Label
 func _process(delta: float) -> void:
 	var new_text = ""
 	if gc.is_day:
-		new_text = "Day: " + str(gc.day_length - gc.timer)
+		new_text = str(snapped(gc.day_length - gc.timer, 0.1))
+		$day.visible = true
+		$night.visible = false
 	else:
-		new_text = "Night: " + str(gc.night_length - gc.timer)
+		new_text = str(snapped(gc.night_length - gc.timer, 0.1))
+		$day.visible = false
+		$night.visible = true
 	
 	text = new_text

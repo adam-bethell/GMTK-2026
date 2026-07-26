@@ -29,7 +29,7 @@ func new_tower_selected(type:int) -> void:
 	tower_type = type
 	towerGhost.set_type(tower_type)
 	if type == 1:
-		tower_cost = 2
+		tower_cost = 1
 	elif type == 2:
 		tower_cost = 5
 	else:
@@ -72,9 +72,10 @@ func _on_mouse_exit() -> void:
 	isMousePresent = false
 	towerGhost.visible = false
 
-func spawn_mob() -> void:
+func spawn_mob(bonus: int) -> void:
 	var mob = mobPF.instantiate()
 	add_child(mob)
+	mob.set_bonus(bonus)
 	mob.global_position = mobSpawnPos
 	mob.set_target(mobTargetPos)
 	mob.on_detonate.connect(_on_mob_detonate)

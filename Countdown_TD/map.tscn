@@ -7,9 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://cbw2hxenhbofp" path="res://Explosion1.png" id="4_p5pve"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_k6aki"]
-vertices = PackedVector2Array(1222, 74, 1286, 74, 1286, 982, 74, 982, 74, 918, 10, 918, 10, 10, 1222, 10)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 4, 5, 6, 7)])
+vertices = PackedVector2Array(1276, 972, 20, 972, 20, 20, 1276, 20)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 1296, 0, 1296, 992, 0, 992)])
+parsed_geometry_type = 1
+cell_size = 4.0
 agent_radius = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e0an3"]
@@ -244,7 +246,7 @@ position = Vector2(-8, 8)
 position = Vector2(1264, 32)
 sprite_frames = SubResource("SpriteFrames_k6aki")
 autoplay = "default"
-frame_progress = 0.9574876
+frame_progress = 0.83750564
 
 [node name="Area2D" type="Area2D" parent="NavigationRegion2D/spawn" unique_id=1350438504]
 collision_layer = 3

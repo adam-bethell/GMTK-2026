@@ -15,17 +15,17 @@ func _on_destroy() -> void:
 	
 func set_type (t:int) -> void:
 	if t == 1:
-		damage = 15
-		fire_time = 0.4
+		damage = 14
+		fire_time = 0.3
 		type = 1
 		$AnimatedSprite2D.play("Fire1")
 	elif t == 2:
-		damage = 10
-		fire_time = 0.5
+		damage = 5
+		fire_time = 0.6
 		type = 2
 		$AnimatedSprite2D.play("Fire2")
 	else:
-		damage = 8
+		damage = 5
 		fire_time = 0.2
 		type = 3
 		$AnimatedSprite2D.play("Fire3")
@@ -62,6 +62,7 @@ var is_ghost = false
 func use_as_ghost() -> void:
 	$StaticBody2D.queue_free()
 	is_ghost = true
+	$aoe.visible = true
 	
 func single_fire() -> void:
 	var overlapping_areas = $Area2D2.get_overlapping_areas()

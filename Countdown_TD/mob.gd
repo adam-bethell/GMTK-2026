@@ -7,6 +7,13 @@ var true_target = null
 var speed = 100
 var health = 100
 
+func set_bonus(bonus:int) -> void:
+	var h = 15 * bonus
+	health = health + h
+	
+	var s = 15 * bonus
+	speed = speed + s
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.on_day_night_change.connect(_on_day_night_change)
@@ -22,6 +29,8 @@ func set_target(value: Vector2) ->void:
 	true_target = value
 	navAgent.target_position = value
 	target_is_set = true
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
